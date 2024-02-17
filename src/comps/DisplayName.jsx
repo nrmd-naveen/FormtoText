@@ -25,9 +25,11 @@ const DisplayName = (props) =>{
             }
           });
         const deleteNow = ()=>{
+            console.log("Target Id ** " , Tid)
             const data = getData();
-            let newData  = data.filter( el => el.id!==Tid);
-            console.log(newData);
+            console.log("OLD ... ", data);
+            let newData  = data.filter( el => el.id!=Tid);
+            console.log("NEW ... ", newData);
             localStorage.setItem("PatientData",JSON.stringify(newData));
             props.updateParentData(newData);
         }

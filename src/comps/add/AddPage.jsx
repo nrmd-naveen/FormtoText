@@ -4,7 +4,6 @@ import './../../styles/addPage.scss'
 
 
 const AddPage = (props) =>{
-
     const [name, setName] = useState('');
     const [age, setAge] = useState('');
     const [gender, setGender] = useState('');
@@ -13,10 +12,10 @@ const AddPage = (props) =>{
     const [village, setVillage] = useState('');
     const [phone, setPhone] = useState('');
     const [date, setDate] = useState(props.date);
-    const [id, setId] = useState(1);
+    const [id, setId] = useState(props.prevId);
     const constructInputObject = () => {
         // consolidating input values
-        setId(id+1);
+        
         return {
             id,
           date: date,
@@ -82,6 +81,7 @@ const AddPage = (props) =>{
 
     const handleSubmit = (e) =>{
         e.preventDefault();
+        setId(id+10);
         const input = constructInputObject();
         //console.log("Constructed Data -- ",input);
         //Validation

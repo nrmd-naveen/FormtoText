@@ -18,20 +18,13 @@ const Main = () =>{
         const storedData = getData();
         if (storedData) {
           setParentData(storedData);
+          console.log("id ** ",(storedData[storedData.length-1]).id)
+          setPrevId((storedData[storedData.length-1]).id);
+
         }
       }, []);
 
-    // const setDeleteId = (id) =>{
-    //     console.log(id);
-    //     const delElement = filteredData[id];
-    //     deleteData(delElement)
-    // }
-    // const deleteData = (delEl) =>{
-    //     //console.log(delEl);
-    //     const postDel = parentData.filter( el =>{
-    //         })
-    // } 
-
+    const [prevId, setPrevId] = useState(101)
     const [page, setPage] = useState('add');
     const [inpDate,setInpDate] = useState(getDate());
     const handlePage = (e)=>{
@@ -73,8 +66,8 @@ const Main = () =>{
             </header>
             <div className='page'>
                 {page === 'add'?
-                <AddPage updateParentData={updateParentData}  date = {inpDate} />:
-                <CopyPage />}
+                <AddPage updateParentData={updateParentData} prevId = {prevId} date = {inpDate} />:
+                <CopyPage data={filteredData} />}
             </div>
         </div>
     )
