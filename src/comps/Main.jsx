@@ -6,7 +6,7 @@ import { getDate } from "./services/getDate";
 import DisplayName from './DisplayName';
 import { getData } from "./services/getData";
 import { message } from './services/message';
-
+import randomInteger from 'random-int';
 
 const Main = () =>{
 
@@ -14,14 +14,14 @@ const Main = () =>{
         document.title = "Home Page";  
     }, []); 
     const [parentData, setParentData] = useState([]);
-    const [prevId, setPrevId] = useState(101);
+    const [prevId, setPrevId] = useState(randomInteger(0,999));
     useEffect(() => {
         // Load data from local storage when the component mounts
         const storedData = getData();
         if (storedData) {
           setParentData(storedData);
-          console.log("id ** ",(storedData[storedData.length-1]).id);
-          setPrevId(((storedData[storedData.length-1]).id)+2);
+        //   console.log("id ** ",(storedData[storedData.length-1]).id);
+        //   setPrevId(((storedData[storedData.length-1]).id)+2);
 
         }
       }, []);
@@ -37,6 +37,7 @@ const Main = () =>{
     
     const updateParentData = (newData) => {
         // Update the parent component's state with new data
+        setPrevId(randomInteger(0,9999));
         console.log(typeof(newData) , newData);
         setParentData(newData);
       };
