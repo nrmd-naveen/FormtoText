@@ -1,0 +1,47 @@
+@import "all";
+
+.user{
+  @include flex(row);
+  margin: 2px 0px;
+  padding: 6px 0 0 8px;
+  height: 35px;
+  background-color: #0000001f;
+  border-radius: 5px;
+  justify-content: space-between;
+  span{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:25px;
+    height:25px;
+    border-radius:50%;
+    background-color:#000;
+    color:#fff;
+  }
+  p{
+    margin: 0 10px;
+  }
+  div{
+    @include flex(row);
+    button{
+      width: 45px;
+      height: 30px;
+      border-radius: 5px;
+      border-style: none;
+      margin-right: 15px;
+      cursor: pointer;
+      svg{
+        height: 20px;
+        width: 20px;
+      }
+    }
+  }
+}
+
+
+.editBox{
+  background-color: rgb(162, 162, 162);
+}
+.delBox{
+  background-color: rgb(213, 73, 73);
+}
