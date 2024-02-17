@@ -14,19 +14,19 @@ const Main = () =>{
         document.title = "Home Page";  
     }, []); 
     const [parentData, setParentData] = useState([]);
+    const [prevId, setPrevId] = useState(101);
     useEffect(() => {
         // Load data from local storage when the component mounts
         const storedData = getData();
         if (storedData) {
           setParentData(storedData);
-          console.log("id ** ",(storedData[storedData.length-1]).id)
-          setPrevId((storedData[storedData.length-1]).id);
+          console.log("id ** ",(storedData[storedData.length-1]).id);
+          setPrevId(((storedData[storedData.length-1]).id)+2);
 
         }
       }, []);
 
-    const [prevId, setPrevId] = useState(101)
-    const [page, setPage] = useState('copy');
+    const [page, setPage] = useState('add');
     const [inpDate,setInpDate] = useState(getDate());
     const handlePage = (e)=>{
         e.preventDefault();

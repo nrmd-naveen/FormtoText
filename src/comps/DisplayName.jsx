@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';
 const DisplayName = (props) =>{
     const handleDelete = (e) =>{
         e.preventDefault();
-        const Tid = e.currentTarget.id;
+        const Tid = Number(e.currentTarget.id);
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -28,7 +28,7 @@ const DisplayName = (props) =>{
             console.log("Target Id ** " , Tid)
             const data = getData();
             console.log("OLD ... ", data);
-            let newData  = data.filter( el => el.id!=Tid);
+            let newData  = data.filter( el => Number(el.id) !== Tid);
             console.log("NEW ... ", newData);
             localStorage.setItem("PatientData",JSON.stringify(newData));
             props.updateParentData(newData);
