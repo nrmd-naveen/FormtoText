@@ -63,8 +63,8 @@ const Main = () =>{
                     ))}
                 </div>
                 <div className='toggleBar'>
-                    <button id="add" onClick={handlePage}>Add Patient</button>
-                    <button  id='copy' onClick={handlePage}>Copy Text</button>
+                    <button id="add" style={{backgroundColor:page ==='add'? 'rgba(255, 255, 255, 0.356)':'transparent'}} onClick={handlePage}>Add Patients</button>
+                    <button  id='copy' style={{backgroundColor:page ==='copy'? 'rgba(255, 255, 255, 0.356)':'transparent'}} onClick={handlePage}>Copy Text</button>
                 </div>
             </header>
             <div className='page'>

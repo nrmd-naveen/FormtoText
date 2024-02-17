@@ -19,6 +19,7 @@
                         margin-top: 5px;
                         color: white;
                         font-size: 20px;
+                        margin-left: 5px;
                     }
                 }
                 .namesBar{
@@ -38,11 +39,14 @@
                     justify-content: space-around;
 
                     button{
-                        width: 35%;
-                        height: 80%;
-                        border-radius: 5px;
+                        font-size: 20px;
+                        width: 155px;
+                        height: 100%;
+                        border-top-left-radius: 10px;
+                        border-top-right-radius: 10px;
                         border-style: none;
-    
+                        @include flexCenter(row);
+                        background-color: rgba(255, 255, 255, 0.356);
                     }
                 }
             }
@@ -69,6 +73,7 @@ input[type="date"]{
     border: none;
     outline: none;
     border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 ::-webkit-calendar-picker-indicator{
     background-color: #ffffff;
