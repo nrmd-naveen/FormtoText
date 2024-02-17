@@ -1,6 +1,5 @@
 import {useState, useEffect } from 'react';
 import Swal from 'sweetalert2';
-import { setData } from '../services/setData';
 import './../../styles/addPage.scss'
 
 

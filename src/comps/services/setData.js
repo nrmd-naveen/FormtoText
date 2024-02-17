@@ -1,4 +1,3 @@
-import { updateData } from "../Main";
 
 export const setData = (inputData) =>{
     const LSdata = JSON.parse(localStorage.getItem("PatientData"));

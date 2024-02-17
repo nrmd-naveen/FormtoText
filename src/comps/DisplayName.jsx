@@ -1,5 +1,4 @@
 import './../styles/displayNames.scss';
-import { BeakerIcon } from '@heroicons/react/24/solid'
 import { getData } from './services/getData';
 import Swal from 'sweetalert2';
 
@@ -27,7 +26,7 @@ const DisplayName = (props) =>{
           });
         const deleteNow = ()=>{
             const data = getData();
-            let newData  = data.filter( el => el.id!=Tid);
+            let newData  = data.filter( el => el.id!==Tid);
             console.log(newData);
             localStorage.setItem("PatientData",JSON.stringify(newData));
             props.updateParentData(newData);
