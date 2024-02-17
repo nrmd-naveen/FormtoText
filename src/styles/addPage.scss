@@ -30,7 +30,6 @@
         width: 130px;
         height: 43px;
         font-size: 20px;
-        @include flex(row);
         border-radius: 25px;
         border-style: none;
         background-color: $sec;

@@ -1,0 +1,40 @@
+@import 'all';
+
+.mainContain{
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.356);
+        margin: 0 20px;
+        padding: 10px 10px 15px 10px;
+        height: auto;
+    .copyHead{
+        @include flex(row);
+        justify-content: space-around;
+        h2{
+            font-size: 25px;
+
+        }
+        button{
+            width: 125px;
+            height: 40px;
+            font-size: 18px;
+            border-radius: 25px;
+            border-style: none;
+            background-color: $sec;
+            @include flexCenter(row);
+            svg{
+                padding: 2px;
+                height: 22px;
+                width: 22px;
+                margin-left: 5px;
+                margin-bottom: 1.5px;
+            }
+        }
+    }
+    .textContain{
+        padding: 20px;
+        height: 250px;
+        background-color: rgba(240, 255, 255, 0.676);
+        overflow-y: scroll;
+    }
+}

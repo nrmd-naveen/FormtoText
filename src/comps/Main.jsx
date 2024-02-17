@@ -5,6 +5,7 @@ import CopyPage from "./copy/CopyPage";
 import { getDate } from "./services/getDate";
 import DisplayName from './DisplayName';
 import { getData } from "./services/getData";
+import { message } from './services/message';
 
 
 const Main = () =>{
@@ -25,7 +26,7 @@ const Main = () =>{
       }, []);
 
     const [prevId, setPrevId] = useState(101)
-    const [page, setPage] = useState('add');
+    const [page, setPage] = useState('copy');
     const [inpDate,setInpDate] = useState(getDate());
     const handlePage = (e)=>{
         e.preventDefault();
@@ -46,6 +47,7 @@ const Main = () =>{
     }
     
     const filteredData = parentData.filter((el) => el.date === inpDate);
+    const msg = message(filteredData,inpDate);
     
     return(
         <div className='mainCont'> 
@@ -67,7 +69,7 @@ const Main = () =>{
             <div className='page'>
                 {page === 'add'?
                 <AddPage updateParentData={updateParentData} prevId = {prevId} date = {inpDate} />:
-                <CopyPage data={filteredData} />}
+                <CopyPage message = {msg} />}
             </div>
         </div>
     )
