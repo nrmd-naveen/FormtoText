@@ -3,7 +3,8 @@ import { useState } from 'react';
 import Swal from 'sweetalert2';
 
 const CopyPage = (props) =>{
-    const message = (props.message).toString();
+
+    const message = props.message=== null ? " " : (props.message).toString();
     const [copied, setCopied] = useState(false);
     const [disabled,setDisabled] = useState(false);
     const handleCopy = (e) =>{

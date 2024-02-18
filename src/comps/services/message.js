@@ -1,6 +1,6 @@
 
 export const message =(data,date) =>{
-    if(data[0]===null || data===null|| data === undefined){
+    if(data.length===0||data[0]===null || data===null|| data === undefined){
         return null;
     }
     console.log("msg",data)
