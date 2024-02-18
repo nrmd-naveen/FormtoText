@@ -41,11 +41,9 @@ const Main = () =>{
         console.log(typeof(newData) , newData);
         setParentData(newData);
       };
-    const [editId, setEditId] = useState(null);
-    const edit = (id) =>{
-        console.log("Main : ", id);
-        setEditId(id);
-        
+
+      const edit = (id) =>{
+        console.log("Main : ", id);        
       }
     const handleDate = (e)=>{
         e.preventDefault();
