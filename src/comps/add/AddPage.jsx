@@ -17,7 +17,7 @@ const AddPage = (props) =>{
         // consolidating input values
         
         return {
-            id,
+            id:id+3,
           date: date,
           name,
           age,

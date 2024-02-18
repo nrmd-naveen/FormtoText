@@ -11,7 +11,7 @@ import randomInteger from 'random-int';
 const Main = () =>{
 
     useEffect(() => {
-        document.title = "Home Page";  
+        document.title = "Home";  
     }, []); 
     const [parentData, setParentData] = useState([]);
     const [prevId, setPrevId] = useState(randomInteger(0,999));

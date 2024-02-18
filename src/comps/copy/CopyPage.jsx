@@ -15,7 +15,7 @@ const CopyPage = (props) =>{
         setCopied(true);
         Swal.fire({
             title: "Done !",
-            text: `Your Message Copied !`,
+            text: `Message Copied Successfully!`,
             icon: "success"
           });
     }
