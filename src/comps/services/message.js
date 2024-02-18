@@ -25,7 +25,7 @@ export const message =(data,date) =>{
         Age             -       ${el.age}
         Gender        -      ${gender} 
         D/o              -      ${el.fmname}
-        Village         -       ${el.village}  
+        Town            -       ${el.village}  
         Phone          -      ${el.phone}
         
 `}  else{
@@ -38,7 +38,7 @@ export const message =(data,date) =>{
         Gender        -      ${gender} 
         D/o              -      ${el.fmname}
         Street          -      ${el.street}
-        Village         -       ${el.village}  
+        Town            -       ${el.village}  
         Phone          -      ${el.phone}
         
 `

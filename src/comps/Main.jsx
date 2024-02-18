@@ -41,7 +41,12 @@ const Main = () =>{
         console.log(typeof(newData) , newData);
         setParentData(newData);
       };
-
+    const [editId, setEditId] = useState(null);
+    const edit = (id) =>{
+        console.log("Main : ", id);
+        setEditId(id);
+        
+      }
     const handleDate = (e)=>{
         e.preventDefault();
         setInpDate(e.target.value)
@@ -59,7 +64,7 @@ const Main = () =>{
                 </div>
                 <div className="namesBar">
                     {filteredData.map((el, ind) => (
-                    <DisplayName updateParentData={updateParentData} id={el.id}  key={el.id} index = {ind} name={el.name} />
+                    <DisplayName edit = {edit} updateParentData={updateParentData} id={el.id}  key={el.id} index = {ind} name={el.name} />
                     ))}
                 </div>
                 <div className='toggleBar'>
@@ -69,7 +74,7 @@ const Main = () =>{
             </header>
             <div className='page'>
                 {page === 'add'?
-                <AddPage updateParentData={updateParentData} prevId = {prevId} date = {inpDate} />:
+                <AddPage  updateParentData={updateParentData} prevId = {prevId} date = {inpDate} />:
                 <CopyPage message = {msg} />}
             </div>
         </div>
