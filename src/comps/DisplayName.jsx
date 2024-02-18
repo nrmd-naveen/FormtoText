@@ -1,6 +1,7 @@
 import './../styles/displayNames.scss';
 import { getData } from './services/getData';
 import Swal from 'sweetalert2';
+import  {setDeleted} from './services/setDeleted';
 
 const DisplayName = (props) =>{
 
@@ -34,6 +35,8 @@ const DisplayName = (props) =>{
             console.log("Target Id ** " , Tid)
             const data = getData();
             console.log("OLD ... ", data);
+            let delData  = data.filter( el => Number(el.id) === Tid);
+            setDeleted(delData);
             let newData  = data.filter( el => Number(el.id) !== Tid);
             console.log("NEW ... ", newData);
             localStorage.setItem("PatientData",JSON.stringify(newData));
