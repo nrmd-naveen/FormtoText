@@ -14,9 +14,13 @@ const AddPage = (props) =>{
     const [phone, setPhone] = useState('');
     const [date, setDate] = useState(props.date);
     const [id, setId] = useState(props.prevId);
+    useEffect(()=>{
+        if(props.eData){
+            setForm(props.eData);
+          }
+    },[props.eData])
     const constructInputObject = () => {
         // consolidating input values
-        
         return {
             id:id+3,
             date: date,
@@ -63,7 +67,19 @@ const AddPage = (props) =>{
         }
       };
     
-
+      const setForm = (data) => {
+        console.log("At Set Form !")
+        setName(data.name);
+        setAge(data.age);
+        setGender(data.gender);
+        setFmName(data.fmname);
+        setFmNameHead(data.fmNameHead ? data.fmNameHead : data.gender==='male'?'S/o':(Number(data.age)>25?'W/o':'D/o'));
+        setStreet(data.street);
+        setVillage(data.village);
+        setPhone(data.phone);
+    };
+    
+     
     // Function to reset all inputFields
     const resetForm = () => {
         setName('');
@@ -72,14 +88,12 @@ const AddPage = (props) =>{
         setFmName('');
         setStreet('');
         setVillage('');
-        setPhone('');
+        setPhone('புதுவயல்');
     };
 
-    
      useEffect(() => {
          setDate(props.date);
      }, [props.date]);
-
 
     const notRequired = ["street","phone","fmname"]
     const required = [];
@@ -111,15 +125,33 @@ const AddPage = (props) =>{
             //Saving Data ...
             const LSdata = JSON.parse(localStorage.getItem("PatientData"));
             let Data = localStorage.getItem("PatientData") !== null ? LSdata : [];
-            Data.push(input);
-            localStorage.setItem("PatientData",JSON.stringify(Data));
-            props.updateParentData(Data)       // updating to parent comp
-            resetForm();
-            Swal.fire({
-                title: "Patient Added !",
-                text: `Name : ${input.name}`,
-                icon: "success"
-              });
+            if(props.eData){
+                console.log("Updating Old --");
+                console.log("pre",Data);
+                console.log("Input - ",input);
+                let newData = Data.map( el => el.id !== props.eData.id ? el : input);
+                console.log("post",newData);
+                localStorage.setItem("PatientData",JSON.stringify(newData));
+                props.updateParentData(newData)       // updating to parent comp
+                resetForm();
+                Swal.fire({
+                    title: "Patient Updated !",
+                    text: `Name : ${input.name}`,
+                    icon: "success"
+                })
+
+            }else{
+                console.log("Adding New -- ")
+                Data.push(input);
+                localStorage.setItem("PatientData",JSON.stringify(Data));
+                props.updateParentData(Data)       // updating to parent comp
+                resetForm();
+                Swal.fire({
+                    title: "New Patient Added !",
+                    text: `Name : ${input.name}`,
+                    icon: "success"
+                })
+            }
         }
     }
 

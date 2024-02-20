@@ -40,11 +40,11 @@ const Main = () =>{
         setPrevId(randomInteger(0,9999));
         console.log(typeof(newData) , newData);
         setParentData(newData);
+        if(itemToEdit){
+            setItemToEdit(null);
+        }
       };
-
-      const edit = (id) =>{
-        console.log("Main : ", id);        
-      }
+     
     const handleDate = (e)=>{
         e.preventDefault();
         setInpDate(e.target.value)
@@ -52,7 +52,16 @@ const Main = () =>{
     
     const filteredData = parentData.filter((el) => el.date === inpDate);
     const msg = message(filteredData,inpDate);
-    
+
+     const [itemToEdit, setItemToEdit] = useState(null);
+      const edit = (eid) =>{
+        console.log("Main : ", eid); 
+        console.log("fil Data - " , filteredData);
+        let itm = filteredData.find( el => el.id === Number(eid));
+        console.log("itm" ,itm)
+        setItemToEdit(itm);
+      }
+      //console.log("Ed Item - ",itemToEdit) ;
     return(
         <div className='mainCont'> 
             <header>
@@ -72,7 +81,7 @@ const Main = () =>{
             </header>
             <div className='page'>
                 {page === 'add'?
-                <AddPage  updateParentData={updateParentData} prevId = {prevId} date = {inpDate} />:
+                <AddPage eData = {itemToEdit} updateParentData={updateParentData} prevId = {prevId} date = {inpDate} />:
                 <CopyPage message = {msg} />}
             </div>
         </div>

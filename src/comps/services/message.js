@@ -3,7 +3,7 @@ export const message =(data,date) =>{
     if(data.length===0||data[0]===null || data===null|| data === undefined){
         return null;
     }
-    console.log("msg",data)
+    //console.log("msg",data)
     const head = `*Patient Details*          *Date :* ${date}
 
 `
