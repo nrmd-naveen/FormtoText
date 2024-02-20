@@ -29,10 +29,9 @@
       height: 30px;
       border-radius: 5px;
       border-style: none;
-      margin-right: 15px;
       cursor: pointer;
       @include flexCenter(row);
-      box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+      box-shadow: rgb(0, 35, 72) 0px 0px 0px 1.3px;
       svg{
         height: 20px;
         width: 20px;
@@ -44,7 +43,9 @@
 
 .editBox{
   background-color: rgb(162, 162, 162);
+  margin-right: 25px;
 }
 .delBox{
+  margin-right: 15px;
   background-color: rgb(213, 73, 73);
 }
