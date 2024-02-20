@@ -19,10 +19,10 @@ export const message =(data,date) =>{
             gender = gender === 'male' ? "male child" : "female child";
         }
         let garHead = 'D/o';
-        if(el.fmnameHead){
-            garHead = el.fmnameHead;
+        if(el.fmnameHead === "" || el.fmnameHead === null || el.fmnameHead === undefined){
+            garHead = el.gender==='male'?'S/o':(Number(el.age)>25?'W/o':'D/o');
         }else{
-            garHead = gender==='male' || "male child"?'S/o':(Number(el.age)>25?'W/o':'D/o')
+            garHead = el.fmnameHead;
         }
         
         if(el.street === ""|| el.street === " "||el.street === null){
