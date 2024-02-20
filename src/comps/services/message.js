@@ -44,7 +44,7 @@ export const message =(data,date) =>{
         Name          -       ${el.name}
         Age             -       ${el.age}
         Gender        -      ${gender} 
-        D/o              -      ${el.fmname}
+        ${garHead}              -      ${el.fmname}
         Street          -      ${el.street}
         Town            -       ${el.village}  
         Phone          -      ${el.phone}
