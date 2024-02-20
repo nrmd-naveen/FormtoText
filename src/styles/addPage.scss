@@ -45,6 +45,20 @@
         }
     }
 }
+select{
+    font-size: 19px;
+    background-color: transparent;
+    padding: 1.5px;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: black;
+    border-width: 2px;
+    option{
+        background-color: white;
+        font-size: 12px;
+    }
+}
+
 input[type="radio"] {
     accent-color: rgb(205, 46, 46);
     height: 24px;
@@ -56,7 +70,7 @@ input[type="radio"] {
     background: #fdd;
   }
   
-input:focus{
+input:focus,select:focus{
     outline: none;
 }
 

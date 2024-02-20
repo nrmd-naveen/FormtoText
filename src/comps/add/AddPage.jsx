@@ -7,9 +7,10 @@ const AddPage = (props) =>{
     const [name, setName] = useState('');
     const [age, setAge] = useState('');
     const [gender, setGender] = useState('');
-    const [fmname, setFmName] = useState('');
+    const [fmname, setFmName] = useState();
+    const [fmnameHead, setFmNameHead] = useState();//gender==='male'?'S/o':(Number(age)>20?'W/o':'D/o')
     const [street, setStreet] = useState('');
-    const [village, setVillage] = useState('');
+    const [village, setVillage] = useState('புதுவயல்');
     const [phone, setPhone] = useState('');
     const [date, setDate] = useState(props.date);
     const [id, setId] = useState(props.prevId);
@@ -18,14 +19,15 @@ const AddPage = (props) =>{
         
         return {
             id:id+3,
-          date: date,
-          name,
-          age,
-          gender,
-          fmname,
-          street,
-          village,
-          phone
+            date: date,
+            name,
+            age,
+            gender,
+            fmnameHead:fmnameHead,
+            fmname:fmname,
+            street,
+            village,
+            phone
         };
       };
 
@@ -52,6 +54,9 @@ const AddPage = (props) =>{
             break;
           case 'phone':
             setPhone(e.target.value);
+            break;
+        case 'fmnameHead' :
+            setFmNameHead(e.target.value);
             break;
           default:
             break;
@@ -112,7 +117,7 @@ const AddPage = (props) =>{
             resetForm();
             Swal.fire({
                 title: "Patient Added !",
-                text: `Name - ${input.name}`,
+                text: `Name : ${input.name}`,
                 icon: "success"
               });
         }
@@ -140,7 +145,11 @@ const AddPage = (props) =>{
                         </div>
                     </div>
                     <div className="inputField">
-                            <label>{ gender === 'female' ? "D/o" : "S/o"}</label>
+                    <select name="fmnameHead" id="gar" onChange={handleInput} value={fmnameHead}>
+                        <option value="S/o">S/o</option>
+                        <option value="D/o">D/o</option>
+                        <option value="W/o">W/o</option>
+                    </select>
                             <input name='fmname' value={fmname} onChange={handleInput} type="text"></input>
                         </div>
                         <div className="inputField">
