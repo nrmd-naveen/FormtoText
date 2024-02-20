@@ -92,8 +92,8 @@ const AddPage = (props) =>{
         setGender('');
         setFmName('');
         setStreet('');
-        setVillage('');
-        setPhone('புதுவயல்');
+        setVillage('புதுவயல்');
+        setPhone('');
     };
 
      useEffect(() => {
