@@ -10,7 +10,7 @@ const AddPage = (props) =>{
     const [fmname, setFmName] = useState();
     const [fmnameHead, setFmNameHead] = useState();//gender==='male'?'S/o':(Number(age)>20?'W/o':'D/o')
     const [street, setStreet] = useState('');
-    const [village, setVillage] = useState('புதுவயல்');
+    const [village, setVillage] = useState('');
     const [phone, setPhone] = useState('');
     const [date, setDate] = useState(props.date);
     const [id, setId] = useState(props.prevId);
@@ -92,7 +92,7 @@ const AddPage = (props) =>{
         setGender('');
         setFmName('');
         setStreet('');
-        setVillage('புதுவயல்');
+        setVillage('');
         setPhone('');
     };
 
