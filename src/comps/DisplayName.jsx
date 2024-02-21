@@ -2,6 +2,7 @@ import './../styles/displayNames.scss';
 import { getData } from './services/getData';
 import Swal from 'sweetalert2';
 import  {setDeleted} from './services/setDeleted';
+import { getDisplayData } from './services/getDisplayData';
 
 const DisplayName = (props) =>{
 
@@ -10,6 +11,16 @@ const DisplayName = (props) =>{
       console.log("DN : ", e.currentTarget.id)
       props.edit(e.currentTarget.id);
     }
+    const displayData = (e) =>{
+      e.preventDefault();
+      if (e.target.tagName.toLowerCase() === 'button'|| e.target.closest('button')) {
+        // not propagating into buttons
+        return;}
+      const userData = getDisplayData(e.currentTarget.id);
+      //Alering with the user Data
+      Swal.fire({html : userData});
+    }
+     
     const handleDelete = (e) =>{
         e.preventDefault();
         const Tid = Number(e.currentTarget.id);
@@ -47,7 +58,7 @@ const DisplayName = (props) =>{
     }
     
     return(
-        <div className='user' >
+        <div id={props.id} className='user' onClick={displayData} >
             <div>
               <span>{props.index+1} </span>
               <p>{props.name}</p>  
