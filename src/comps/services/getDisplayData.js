@@ -18,36 +18,16 @@ export const getDisplayData = (id) =>{
     const userData = 
    `<h2 style="text-decoration:underline;">Patient Data :</h2>
     <div style="display:flex; justify-content:center;">
-    <div style="text-align: left; display:flex; flex-direction:row;">
-    <ul style="list-style-type: none;" >
-      <li>Name</li>
-      <li>Age</li>
-      <li>Gender</li>
-      <li>${garHead}</li>
-      <li>Street</li>
-      <li>Town</li>
-      <li>Phone</li>
-    </ul>
-    <div style="margin:0 20px;">
-    <ul style="list-style-type: none;" >
-      <li>-</li>
-      <li>-</li>
-      <li>-</li>
-      <li>-</li>
-      <li>-</li>
-      <li>-</li>
-      <li>-</li>
-    </ul>
-    </div>
-    <ul style="list-style-type: none;">
-      <li style="color:black;">${obj.name}</li>
-      <li>${obj.age}</li>
-      <li>${gender}</li>
-      <li>${obj.fmname}</li>
-      <li>${obj.street}</li>
-      <li>${obj.village} </li>
-      <li>${obj.phone}</li>
-    </ul>
+    <div style="text-align: left; margin-left:15px;">
+    <pre>
+    Name          -       ${obj.name}
+    Age              -       ${obj.age}
+    Gender       -      ${gender}
+    ${garHead}               -      ${obj.fmname}
+    Street          -      ${obj.street}
+    Town            -       ${obj.village}
+    Phone          -      ${obj.phone}
+    </pre>
     </div>
     </div>
     `

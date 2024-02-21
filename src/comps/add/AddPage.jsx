@@ -102,9 +102,19 @@ const AddPage = (props) =>{
 
     const notRequired = ["street","phone","fmname"]
     const required = [];
-
+    const crctMobile = () =>{
+        return phone.length===10 ?  true :false;
+    }
     const handleSubmit = (e) =>{
         e.preventDefault();
+        if(!crctMobile()){
+            Swal.fire({
+                icon: "error",
+                title: "Invalid Mobile ",
+                text: "Enter 10 Digit Phone Number !"
+            });
+            return;
+        }
         setId(id+10);
         const input = constructInputObject();
         //console.log("Constructed Data -- ",input);
@@ -118,9 +128,9 @@ const AddPage = (props) =>{
                 }
             } 
         }
-        if(required[0] != null){ //Checking RequiredFields
+        if(required[0] != null ){ //Checking RequiredFields
             let txt = '';
-            required.forEach( e => txt+= " " +e.toUpperCase());
+            required.forEach( e => txt!== "" ? txt+= ", " +e.toUpperCase():txt+= " " +e.toUpperCase());
             Swal.fire({
                 icon: "error",
                 title: "Fill All These ...",
