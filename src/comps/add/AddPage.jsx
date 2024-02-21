@@ -103,18 +103,10 @@ const AddPage = (props) =>{
     const notRequired = ["street","phone","fmname"]
     const required = [];
     const crctMobile = () =>{
-        return phone.length===10 ?  true :false;
+        return phone.length===10 || phone === "" ?  true :false;
     }
     const handleSubmit = (e) =>{
         e.preventDefault();
-        if(!crctMobile()){
-            Swal.fire({
-                icon: "error",
-                title: "Invalid Mobile ",
-                text: "Enter 10 Digit Phone Number !"
-            });
-            return;
-        }
         setId(id+10);
         const input = constructInputObject();
         //console.log("Constructed Data -- ",input);
@@ -137,6 +129,14 @@ const AddPage = (props) =>{
                 text: txt
             });
         }else{
+            if(!crctMobile()){
+                Swal.fire({
+                    icon: "error",
+                    title: "Invalid Mobile ",
+                    text: "Enter 10 Digit Phone Number !"
+                });
+                return;
+            }
             //Saving Data ...
             const LSdata = JSON.parse(localStorage.getItem("PatientData"));
             let Data = localStorage.getItem("PatientData") !== null ? LSdata : [];
