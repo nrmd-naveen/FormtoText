@@ -93,7 +93,7 @@ const DownloadButton = (props) => {
         },
       };
   
-      pdfMake.createPdf(docDefinition).download();
+      pdfMake.createPdf(docDefinition).download('PatientDetials.pdf');
     }
   const downloadAsXLSX = () => {
     if (downloadData && downloadData[0] !== undefined) {

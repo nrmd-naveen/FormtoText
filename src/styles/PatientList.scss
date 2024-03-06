@@ -42,7 +42,7 @@
             }
             .content{
                 @include flex(row);
-                justify-content: space-around;
+                justify-content: space-between;
                 width: 100%;
                 .name{
                     margin-left: 5%;
