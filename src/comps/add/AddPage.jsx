@@ -1,14 +1,15 @@
 import {useState, useEffect } from 'react';
 import Swal from 'sweetalert2';
 import './../../styles/addPage.scss'
+import { useMediaQuery } from 'react-responsive';
 
 
 const AddPage = (props) =>{
     const [name, setName] = useState('');
     const [age, setAge] = useState('');
     const [gender, setGender] = useState('');
-    const [fmname, setFmName] = useState();
-    const [fmnameHead, setFmNameHead] = useState();//gender==='male'?'S/o':(Number(age)>20?'W/o':'D/o')
+    const [fmname, setFmName] = useState('');
+    const [fmnameHead, setFmNameHead] = useState('');//gender==='male'?'S/o':(Number(age)>20?'W/o':'D/o')
     const [street, setStreet] = useState('');
     const [village, setVillage] = useState('');
     const [phone, setPhone] = useState('');
@@ -100,7 +101,7 @@ const AddPage = (props) =>{
          setDate(props.date);
      }, [props.date]);
 
-    const notRequired = ["street","phone","fmname"]
+    const notRequired = ["street","phone","fmname","fmnameHead"]
     const required = [];
     const crctMobile = () =>{
         return phone.length===10 || phone === "" ?  true :false;
@@ -169,9 +170,13 @@ const AddPage = (props) =>{
             }
         }
     }
+    const isDesktop = useMediaQuery({
+        query : '(min-width:950px)'
+      })
 
     return(
         <div className='mainContainer' > 
+            {isDesktop && <h2>Add Patients</h2>}
             <div className="formContainer">
                 <form onSubmit={handleSubmit} >
                     <div className="inputField">

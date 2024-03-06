@@ -1,7 +1,7 @@
 import { getData } from "./getData"
 
-export const getDisplayData = (id) =>{
-    const data = getData();
+export const getDisplayData = (id,Lid) =>{
+    const data = getData(Lid);
     const obj = data.find( el => el.id === Number(id));
     console.log('obj', obj)
     var gender = obj.gender;

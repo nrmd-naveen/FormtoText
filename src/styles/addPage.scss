@@ -1,8 +1,11 @@
 @import "all";
 
 .mainContainer{
-    
+    h2{
+        display: none;
+    }
     .formContainer{
+                min-width: 300px;
         border-bottom-left-radius: 5px;
         border-bottom-right-radius: 5px;
         background-color: rgba(255, 255, 255, 0.356);
@@ -15,8 +18,9 @@
             font-size: 20px;
 
             input:not(#male):not(#female) {
+                z-index: 0;
                 margin-top: 2px;
-                position: fixed;
+                position: absolute;
                 padding-left: 5px;
                 left: 120px;
                 border-style: solid;
@@ -91,4 +95,88 @@ input:focus,select:focus{
 
 .addBtn{
     @include flexCenter(row);
+}
+
+
+@media screen and (min-width:750px){
+    .mainContainer{
+        
+        h2{
+            margin: 30px ;
+            text-align: center  ;
+            display: block;
+            color: rgb(183, 183, 183);
+            text-decoration: underline;
+        }
+        .formContainer{
+            min-width: 400px;
+            max-width: 70%;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.356);
+            margin: 0 20px;
+            padding: 10px 10px 15px 10px;
+            margin-bottom: 15px;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+            .inputField{
+                margin: 8px;
+                font-size: 20px;
+    
+                input:not(#male):not(#female) {
+                    z-index: 0;
+                    position: absolute;
+                    margin-top: 2px;
+                    margin-left: 40%;
+                    padding-left: 5px;
+                    left: 120px;
+                    border-style: solid;
+                    border-width: 0 0 3px 0;
+                    border-color: rgba(98, 98, 98, 0.336);
+                    border-radius: 5px;
+                    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+                    background-color: rgba(226, 222, 222, 0.473);
+                    width: 200px;
+                    height: 22px;
+                }
+    
+            }
+        }
+    
+        button{
+            margin-top: 30px;
+            width: auto;
+            padding: 0 20px;
+            height: 43px;
+            font-size: 20px;
+            border-radius: 25px;
+            border-style: none;
+            background-color: $sec;
+            @include flexCenter(row);
+            box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+            svg{
+                padding: 2px;
+                height: 22px;
+                width: 22px;
+                margin-left: 10px;
+                margin-bottom: 1.5px;
+            }
+        }
+    }
+    label{
+        margin-left: 15px;
+    }
+    
+}
+@media screen and (min-width:950px){
+    .mainContainer{
+        .formContainer{
+            transform: scale(1.1);  
+            .inputField{
+
+                input:not(#male):not(#female){
+                    margin-left: 12%;
+                }
+            }
+        }
+    }
 }

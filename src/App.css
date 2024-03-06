@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+.pagesCont{   
+  margin-top: 75px;
+}
+
+@media screen and (min-width:750px){
+  
+.pagesCont{
+  margin-left: 220px;
+  margin-top: 75px;
+}
+}

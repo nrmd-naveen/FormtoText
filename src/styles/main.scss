@@ -5,21 +5,30 @@
     padding: 0;
     @include poppins(600);
         .mainCont{
-            
-
-            header{
-                background-color: $prim;
 
                 .topBar{
-                    background-color: rgba(0, 0, 0, 0.562);
+                    background-color: transparent;
                     @include flex(row);
-                    justify-content: space-between;
-                    padding: 10px 10px 0 10px;
-                    h3{
-                        margin-top: 5px;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 0 30px 0 25px;
+
+                    .hd{
+                        margin-top: 2%;
+                        width: 100%;
+                        @include flex(row);
+                        align-items: center;
+                        justify-content: space-around;
+                    }
+                    span{
                         color: white;
-                        font-size: 20px;
-                        margin-left: 5px;
+                        margin: 0 15px;
+                    }
+                    h3{
+                        margin-top: 15px;
+                        color: white;
+                        font-size: 18px;
+                        margin-left: 40%;
                     }
                 }
                 .namesBar{
@@ -32,6 +41,7 @@
                     scrollbar-width: p;
                 }
                 .toggleBar{
+                    opacity: 1;
                     width: 100%;
                     height: 45px;
                     @include flexCenter(row);
@@ -47,13 +57,7 @@
                         @include flexCenter(row);
                         background-color: rgba(255, 255, 255, 0.356);
                     }
-                }
-            }
-
-            .page{
-                
-
-            }
+                }   
         }
     }
 
@@ -82,3 +86,79 @@ input[type="date"]{
     cursor: pointer;
     border-radius: 5px;
 }       
+
+@media screen and (min-width:950px){
+    .deskPage{
+        @include flex(row);
+        align-items: center;
+        justify-content: space-around;
+        margin:0 0 100px 0;
+    }
+    .mainCont{
+        max-height: 100vh;
+        .topBar{
+            width: 250px;
+            position: fixed;
+            top: -40px;
+            right: 0;
+            background-color: transparent;
+            @include flex(row);
+            align-items: center;
+            margin-top: 3%;
+            padding: 0 30px 0 25px;
+
+            .hd{
+                width: 100%;
+                @include flex(row);
+                align-items: center;
+                justify-content: space-around;
+            }
+            span{
+                color: white;
+            }
+            h3{
+                margin-top: 15px;
+                color: white;
+                font-size: 18px;
+                margin-left: 10px;
+            }
+        }
+        .namesBar{
+            border-radius: 5px;
+            margin: 5px;
+            padding: 0px 0;
+            overflow-y: scroll;
+            overflow: hidden;
+            scroll-behavior: smooth;
+            scrollbar-width: p;
+        }
+        .toggleBar{
+            opacity: 0;
+            width: 100%;
+            height: 45px;
+            @include flexCenter(row);
+            justify-content: space-around;
+
+            button{
+                font-size: 20px;
+                width: 155px;
+                height: 100%;
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+                border-style: none;
+                @include flexCenter(row);
+                background-color: rgba(255, 255, 255, 0.356);
+            }
+        }   
+    }
+
+}
+
+@media screen and (max-width:1150px){
+    .deskPage{
+        @include flex(column);
+        align-items: center;
+        justify-content: space-around;
+        margin:0 0 100px 0;
+    }
+}

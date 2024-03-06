@@ -16,7 +16,7 @@ const DisplayName = (props) =>{
       if (e.target.tagName.toLowerCase() === 'button'|| e.target.closest('button')) {
         // not propagating into buttons
         return;}
-      const userData = getDisplayData(e.currentTarget.id);
+      const userData = getDisplayData(e.currentTarget.id,"PatientDetails");
       //Alering with the user Data
       Swal.fire({html : userData});
     }
@@ -44,10 +44,10 @@ const DisplayName = (props) =>{
           });
         const deleteNow = ()=>{
             console.log("Target Id ** " , Tid)
-            const data = getData();
+            const data = getData("PatientData");
             console.log("OLD ... ", data);
             let delData  = data.filter( el => Number(el.id) === Tid);
-            setDeleted(delData);
+            setDeleted(delData[0]);
             let newData  = data.filter( el => Number(el.id) !== Tid);
             console.log("NEW ... ", newData);
             localStorage.setItem("PatientData",JSON.stringify(newData));

@@ -1,8 +1,8 @@
 
-export const setData = (inputData) =>{
-    const LSdata = JSON.parse(localStorage.getItem("PatientData"));
-    let Data = localStorage.getItem("PatientData") !== null ? LSdata : [];
+export const setData = (ID, inputData) =>{
+    const LSdata = JSON.parse(localStorage.getItem(ID));
+    let Data = localStorage.getItem(ID) !== null ? LSdata : [];
     Data.push(inputData);
-    localStorage.setItem("PatientData",JSON.stringify(Data));
+    localStorage.setItem(ID,JSON.stringify(Data));
     console.log("Updated --------");
 }

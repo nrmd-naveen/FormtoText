@@ -1,7 +1,6 @@
 
 
-export const getData = () =>{
-    const LSdata = JSON.parse(localStorage.getItem("PatientData"));
-    //console.log("Getting Data ------- ",LSdata);
+export const getData = (ID) =>{
+    const LSdata = JSON.parse(localStorage.getItem(ID));
     return LSdata;
 }

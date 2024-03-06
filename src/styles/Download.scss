@@ -1,0 +1,35 @@
+@import './main.scss';
+
+.downloadContainer{
+    width: 50%;
+    max-width: 250px;
+    @include flex(row);
+    justify-content: space-between;
+    select{
+        height: 90%;
+        padding-left: 5px;
+        width: 85px;
+        border-width: 1px;
+        background-color: rgba(245, 245, 245, 0.655);
+        option{
+
+        }
+    }
+    button{
+        border-style: solid;
+        border-color: black;
+        border-width: 1px;
+        margin-right: 5px;
+        margin-left: 5px;
+        height: 90%;
+        font-size: 16px;
+        @include flexCenter(row);
+        background-color: rgba(245, 245, 245, 0.655);
+        color: black;
+        padding: 5px 0 5px 10px;
+        border-radius: 5px;
+        svg{
+
+        }
+    }
+}
