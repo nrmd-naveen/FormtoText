@@ -2,11 +2,16 @@ import './../styles/DeletedList.scss';
 import React, { useEffect, useState } from 'react';
 import { getDisplayData } from './services/getDisplayData';
 import Swal from 'sweetalert2';
-function PatientList() {
+function DeletedList() {
   const [deletedData, setDeletedData] = useState(null);
   useEffect(()=>{
-    const delData = JSON.parse(localStorage.getItem("DeletedData"));
-    console.log(delData);
+    let delData = JSON.parse(localStorage.getItem("DeletedData"));
+    try {
+      delData = delData.map(el => delData[0][0] ? delData[0][0]: delData[0])
+    } catch (error) {
+      console.log(error);
+    }
+    // console.log("Mod - ",delData);
     if(delData === null || delData[0] === undefined){
       setDeletedData(null);
     }else{
@@ -66,4 +71,4 @@ const Patient = (props) =>{
     </div>
   )
 }
-export default PatientList;
+export default DeletedList;
