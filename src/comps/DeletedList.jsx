@@ -7,7 +7,7 @@ function DeletedList() {
   useEffect(()=>{
     let delData = JSON.parse(localStorage.getItem("DeletedData"));
     try {
-      delData = delData.map(el => delData[0][0] ? delData[0][0]: delData[0])
+      delData = delData.map(el => el[0][0] ? el[0][0]: el[0])
     } catch (error) {
       console.log(error);
     }
