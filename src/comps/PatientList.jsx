@@ -4,6 +4,7 @@ import { getData } from './services/getData';
 import DownloadButton from './Download';
 import { getDisplayData } from './services/getDisplayData';
 import Swal from 'sweetalert2';
+import sortByDate from './services/handleDownloads/sortByDate';
 
 function PatientList() {
   const [sortedData, setSortedData] = useState(null);
@@ -12,8 +13,7 @@ function PatientList() {
     if(data === null || data[0] === undefined){
       setSortedData(null);
     }else{
-      const newData = data.sort((a, b) => new Date(a.date) - new Date(b.date));
-      setSortedData(newData);
+      setSortedData(sortByDate(data));
     }
   },[]);
 
@@ -43,7 +43,7 @@ function PatientList() {
   )
 }
 
-const Patient = (props) =>{
+export const Patient = (props) =>{
   const patient = props.data;
   const setDateFormat = (date) =>{
     let arr = date.split("-");

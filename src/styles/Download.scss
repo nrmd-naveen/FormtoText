@@ -33,3 +33,14 @@
         }
     }
 }
+
+
+@media screen and (min-width:700px) {
+    .downloadContainer{
+        width: 80%;
+        max-width: 350px;
+        @include flex(row);
+        justify-content: space-around;
+      
+    }
+}

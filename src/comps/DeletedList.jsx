@@ -2,21 +2,26 @@ import './../styles/DeletedList.scss';
 import React, { useEffect, useState } from 'react';
 import { getDisplayData } from './services/getDisplayData';
 import Swal from 'sweetalert2';
+import sortByDate from './services/handleDownloads/sortByDate';
 function DeletedList() {
   const [deletedData, setDeletedData] = useState(null);
+  // Handling Old Data 
   useEffect(()=>{
     let delData = JSON.parse(localStorage.getItem("DeletedData"));
-    try {
-      delData = delData.map(el => el[0][0] ? el[0][0]: el[0])
-    } catch (error) {
-      console.log(error);
+    let formattedArray = null;
+    if(delData !== null && delData !== undefined){
+      formattedArray = delData.map(item => {
+      if (Array.isArray(item)) {
+          return item[0];
+      }
+          return item;
+  });
     }
-    // console.log("Mod - ",delData);
-    if(delData === null || delData[0] === undefined){
-      setDeletedData(null);
+    //console.log("Mod - ",formattedArray);
+    if(formattedArray === null || delData[0] === undefined){
+      setDeletedData([]);
     }else{
-      const newData = delData.sort((a, b) => new Date(a.date) - new Date(b.date));
-      setDeletedData(newData);
+      setDeletedData(sortByDate(formattedArray));
     }
   },[]);
 
@@ -27,7 +32,6 @@ function DeletedList() {
     left: "50%",
     transform: "translate(-50%, -50%)"
   }
-  // On Going ---
 
   return (
     <div className='mainCon'>
@@ -37,7 +41,7 @@ function DeletedList() {
       </svg>  
         Deleted List </h2>
       <div className='patientsContainer'>
-      {deletedData=== null ? <p style={center}>No Records Found </p> : deletedData.map( (el, ind) => <Patient data = {el} ind={ind+1} key = {el.id} /> )}
+      {deletedData=== null || deletedData[0] === undefined? <p style={center}>No Records Found </p> : deletedData.map( (el, ind) => <Patient data = {el} ind={ind+1} key = {el.id} /> )}
       </div>
     </div>
   )

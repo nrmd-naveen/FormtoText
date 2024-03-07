@@ -9,6 +9,7 @@ import Header from './comps/Header';
 import { useState } from 'react';
 import SideBar from './comps/SideBar';
 import { useMediaQuery } from 'react-responsive';
+import DownloadPage from './comps/DownloadPage';
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/Patients" element={<PatientList />} />
             <Route path="/Deleted" element={<DeletedList />} />
+            <Route path="/Download" element={<DownloadPage />} />
             <Route element={<NotFound />} /> 
           </Routes>
         </div>

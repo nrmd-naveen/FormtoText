@@ -1,0 +1,187 @@
+@import './main.scss';
+
+.downMainCont{
+    background-color: rgba(240, 248, 255, 0.064);
+    height: 30vh;
+    padding: 10px;
+    .selectionCont{
+        @include flex(column);
+        .dateInput{
+            @include flex(row);
+            label{
+                color: aliceblue;
+                font-size: 18px;
+            }
+            input{
+                user-select: none;
+                color: black;
+                border-style: solid;
+                border-width: 1.5px;
+                background-color: $white;
+            }
+        }
+    .downloadCont{
+        margin-top: 1%;
+        height: 17vh;
+        @include flex(column);
+        align-items: center;
+        justify-content: space-around;
+        padding: 10px;
+        .typCont{
+            @include flex(row);
+
+            .filTyp{
+                 @include flex(row);
+                align-items: center;
+                label{
+                    color: aliceblue;
+                    font-size: 18px;
+                    margin-right: 10px;
+                    margin-top: 7px;
+                }
+                svg{
+                    margin: 0 8px;
+                    height: 29px;
+                    color: $white;
+                }
+            }
+            select{
+                margin-left: 5px;
+                background-color: $white;
+                width: 120px;
+                border-radius: 10px;
+                text-align: center;
+                height: 40px;
+                option{
+
+                }
+            }
+        }
+        
+        
+        button{
+            width: fit-content;
+            border-radius: 10px;
+            background-color: $white;
+            @include flex(row);
+            align-items: center;
+            font-size: 17px;
+            padding: 5px 10px;
+            svg{
+                height: 30px;
+                margin-left: 5px;
+                margin-bottom: 5px;
+            }
+        }
+    }    
+    }
+    .patientsContainer{
+        background-color: transparent;
+        max-height: 77vh;
+        overflow-y: scroll;
+        border-radius: 5px;
+        margin: 10px 5px;
+        padding: 2px 0 0 0;
+        .patient{
+            cursor: pointer;
+            background-color: rgba(245, 245, 245, 0.655);
+            @include flex(row);
+            height: 5vh;
+            margin: 2%;
+            padding: 10px 10px 0 15px;
+            border-style: none;
+            border-radius: 10px;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+            span{
+
+            }
+            .content{
+                @include flex(row);
+                justify-content: space-between;
+                width: 100%;
+                .name{
+                    margin-left: 5%;
+                }
+                .date{
+                    text-align: right;
+                    right: 25px;
+                }
+            }
+            
+        }
+        .patient:hover{
+            background-color: rgba(245, 245, 245, 0.831);
+        }
+    }
+    
+}
+
+
+::-webkit-calendar-picker-indicator{
+    background-color: rgb(138, 140, 148);
+    height: 10px;
+    width: 10px;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 5px;
+}       
+
+@media screen and (min-width:750px){
+    
+    .downMainCont{
+        height: 10vh;
+        .selectionCont{
+            @include flexCenter(row);
+            justify-content: space-around;
+            
+            .dateInput{
+                width: 50%;
+                @include flexCenter(row);
+                justify-content: space-around;
+                label{
+    
+                }
+                input{
+                    margin-left: 10px;
+                }
+            }
+        .downloadCont{
+            width: 50%;
+            margin-top: 0;
+            height: auto;
+            @include flex(row);
+            select{
+
+                option{
+                    background-color: $white;
+                }
+            }
+            button{
+    
+            }
+        }    
+        }
+        
+    .patientsContainer{
+        margin: 2% 10%;
+        .patient{
+            min-width: 300px;
+                max-width: 80%;
+            padding: 10px 10px 0 25px;
+            .content{
+                .name{
+                    margin-left: 10%;
+                }
+                .date{
+                    text-align: right;
+                    margin-right: 25px;
+                }
+            }
+            
+        }
+    }
+        
+    }
+    
+
+}
