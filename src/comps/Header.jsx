@@ -2,7 +2,7 @@ import './../styles/Header.scss';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import SideBar from './SideBar';
-import logo from './appLogo.png';
+import logo from './../appLogo.png';
 
 const Header = () => {
 
