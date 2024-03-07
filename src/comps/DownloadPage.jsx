@@ -15,20 +15,19 @@ const DownloadPage = () => {
   const [fileType, setFileTye] = useState('PDF');
   const [fromDate, setFromDate] = useState(monthStartDate(getDate()));
   const [toDate, setToDate] = useState(getDate());
-  const [data, setData] = useState(getData("PatientData"));
+  const [data, setData] = useState();
   const [selectedData, setSelectedData] = useState(null);
-  const [alignedData, setAlignedData] = useState(null);
   
   useEffect(()=>{
     setSelectedData(getDownloadData(data,fromDate,toDate));
     //console.log("selected __ ",selectedData);
-    //setAlignedData(formatData(selectedData));
-  },[fromDate,toDate])
-  // useEffect(()=>{
-  //   console.log("Aligned - ",alignedData)
-  // },[alignedData])
+  },[data,fromDate,toDate])
+
+  useEffect(()=>{
+    setData(getData("PatientData"));
+  },[])
   const handleFileChange = (e) =>{
-      setFileTye(e.target.value);console.log(alignedData)
+      setFileTye(e.target.value);
   }
   const handleFromChange = (e) =>{
     setFromDate(e.target.value);
