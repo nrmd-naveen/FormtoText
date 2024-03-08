@@ -124,8 +124,9 @@ input[type="date"]{
             }
         }
         .namesBar{
+            margin: 0 10%;
+            max-width: 70%;
             border-radius: 5px;
-            margin: 5px;
             padding: 0px 0;
             overflow-y: scroll;
             overflow: hidden;

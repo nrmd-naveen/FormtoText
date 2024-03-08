@@ -2,8 +2,9 @@ import { getData } from "./getData"
 
 export const getDisplayData = (id,Lid) =>{
     const data = getData(Lid);
+    //  console.log(' Got Data', data)
     const obj = data.find( el => el.id === Number(id));
-    console.log('obj', obj)
+    // console.log('obj', obj)
     var gender = obj.gender;
     if(Number(obj.age)<18){
         gender = gender === 'male' ? "male child" : "female child";

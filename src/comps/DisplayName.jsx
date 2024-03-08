@@ -16,7 +16,7 @@ const DisplayName = (props) =>{
       if (e.target.tagName.toLowerCase() === 'button'|| e.target.closest('button')) {
         // not propagating into buttons
         return;}
-      const userData = getDisplayData(e.currentTarget.id,"PatientDetails");
+      const userData = getDisplayData(e.currentTarget.id,"PatientData");
       //Alering with the user Data
       Swal.fire({html : userData});
     }
