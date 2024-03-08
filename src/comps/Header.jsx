@@ -31,7 +31,7 @@ const Header = () => {
                     </button> 
                 </div>  
                 <div className='hd'>
-                <img src = './assets/appLogo.png' alt='Logo'/>
+                <img src = 'https://i.ibb.co/8PnVV8X/appLogo.png' alt='Logo'/>
                     <h3 onClick={goToHome}>Patient Details</h3>
                 </div>
             </div>
