@@ -2,18 +2,38 @@ import React from 'react';
 import './../styles/About.scss';
 
 function About() {
+
+  const features = [
+    {head:"Effortless Conversion",desc:"Convert extensive patient data into aligned, message-style text with just one click."},
+    {head:"Copy and Share",desc:"Easily copy the formatted data and share it via WhatsApp or other communication platforms."},
+    {head:"Time-Saving",desc:"Accelerate your communication process by eliminating the need for manual data formatting."},
+    {head:"Versatile Data Export",desc:"Generate patient data in multiple formats such as PDF, Excel, or JSON."},
+    {head:"Date Range Downloads",desc:"Download data within specific date ranges, providing you with the flexibility to access the information you need."},
+  ]
+
+  const works = [
+    {head:"Input Data",desc:"Enter patient details into the application."},
+    {head:"Copy and Share",desc:"Copy the generated message and share it on your preferred messaging platform."},
+    {head:"Export Data",desc:"Choose from various export formats, including PDF, Excel, or JSON."},
+    {head:"Date Range Downloads",desc:"Specify date ranges to download data within specific dates."}
+  ]
   return (
     <>
     <div className='aboutCont'>
       <div className='abtTop'>
+
         <h3>About</h3>
-        <p>This tool helps in the process of converting patient data records into a neatly formatted text message.</p>
+        <p>This tool helps in the process of converting patient data records into a neatly formatted text message.
+          And the Recods can also be extracted as PDF/EXCEL/JSON formats.
+        </p>
+        <div className='works'>
+        <h3>How It Works</h3>
+        {works?.map((el,ind)=> <p><span>{ind+1}. {el.head}:</span> {el.desc}</p>)}
+      </div>
       </div>
       <div className='abtBottom'>
         <h3>Features</h3>
-        <p><span>Effortless Conversion:</span> Convert extensive patient data into aligned, message-style text with just one click.</p>
-        <p><span>Copy and Share:</span> Easily copy the formatted data and share it via WhatsApp or other communication platforms.</p>
-        <p><span>Time-Saving:</span> Accelerate your communication process by eliminating the need for manual data formatting.</p>
+        {features?.map(el=> <p><span>{el.head}:</span> {el.desc}</p>)}
       </div>
     </div>
       <div className='contactCont'>

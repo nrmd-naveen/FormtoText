@@ -103,9 +103,18 @@ const AddPage = (props) =>{
 
     const notRequired = ["street","phone","fmname","fmnameHead"]
     const required = [];
+
+    const validAge = () => {
+        if (!isNaN(age) && parseInt(age) >= 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     const crctMobile = () =>{
         return phone.length===10 || phone === "" ?  true :false;
     }
+    
     const handleSubmit = (e) =>{
         e.preventDefault();
         setId(id+10);
@@ -138,9 +147,23 @@ const AddPage = (props) =>{
                 });
                 return;
             }
+            if(!validAge()){
+                Swal.fire({
+                    icon: "error",
+                    title: "Invalid Age ",
+                    text: "Age must be in Numbers !"
+                });
+                return;
+            }
             //Saving Data ...
             const LSdata = JSON.parse(localStorage.getItem("PatientData"));
-            let Data = localStorage.getItem("PatientData") !== null ? LSdata : [];
+            let IsSample = false;
+            if(LSdata !== null){
+                if(LSdata[0].name === "Patient_Name" || LSdata[0].id === 3869){
+                    IsSample =true;
+                }
+            }
+            let Data = localStorage.getItem("PatientData") !== null && !IsSample ? LSdata : [];
             if(props.eData){
                 console.log("Updating Old --");
                 console.log("pre",Data);
@@ -157,7 +180,7 @@ const AddPage = (props) =>{
                 })
 
             }else{
-                console.log("Adding New -- ")
+                console.log("Adding New -- ");
                 Data.push(input);
                 localStorage.setItem("PatientData",JSON.stringify(Data));
                 props.updateParentData(Data)       // updating to parent comp
