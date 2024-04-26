@@ -22,6 +22,7 @@ function DeletedList() {
       setDeletedData([]);
     }else{
       setDeletedData(sortByDate(formattedArray));
+      localStorage.setItem("DeletedData",JSON.stringify(formattedArray));
     }
   },[]);
 
